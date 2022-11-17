@@ -75,4 +75,4 @@ In 1737, the connection between the zeta function and prime numbers was discover
 $$\sum_{n=1}^\infty{\frac{1}{n^s}} = \prod_{p\ prime}\frac{1}{1-p^{-s}},$$
 where, by definition, the left hand side is $\zeta(s)$ and the infinite product on the right hand side extends over all prime numbers (such expressions are called Euler products):
 $$\prod_{p\ prime}\frac{1}{1-p^{-s}} = \frac{1}{1-2^{-s}}\cdot\frac{1}{1-3^{-s}}\cdot\frac{1}{1-5^{-s}}\cdot\frac{1}{1-7^{-s}}\cdot\frac{1}{1-11^{-s}}\cdots\frac{1}{1-p^{-s}}\cdots$$
-Both sides of the Euler product formula converge for ${\rm Re}(s) \gt 1$
+Both sides of the Euler product formula converge for ${\rm Re}(s) \gt 1$.
