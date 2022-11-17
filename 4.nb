@@ -1,0 +1,13 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"Table","[",RowBox[{RowBox[{"Sum","[",RowBox[
+{RowBox[{"1","/",RowBox[{"(",RowBox[{"n","^","s"}],")"}]}],",",RowBox[{"{",RowBox[
+{"n",",","1",",",RowBox[{"+","Infinity"}]}],"}"}]}],"]"}],",",RowBox[{"{",RowBox[
+{"s",",","2",",","10",",","2"}],"}"}]}],"]"}]],"Input",CellLabel -> "In[23]:= ",ExpressionUUID -> "e38edc57-358b-4e75-8c76-97012f996aee"],Cell[
+BoxData[
+RowBox[{"{",RowBox[{FractionBox[SuperscriptBox["\[Pi]","2"],"6"],",",FractionBox[
+SuperscriptBox["\[Pi]","4"],"90"],",",FractionBox[SuperscriptBox["\[Pi]","6"],"945"],",",FractionBox[
+SuperscriptBox["\[Pi]","8"],"9450"],",",FractionBox[SuperscriptBox["\[Pi]","10"],
+"93555"]}],"}"}],StandardForm],"Output",CellLabel -> "Out[23]= ",ExpressionUUID -> "106200e9-c3a0-489e-a746-f17da7ab6545"]},
+Open],ExpressionUUID -> "372baa7f-5058-495f-9459-193855e2cc1e"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "13.1 for Wolfram Cloud 1.64 (October 18, 2022)"]
