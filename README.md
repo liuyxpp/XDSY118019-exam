@@ -16,6 +16,7 @@
 &emsp;&emsp;值得注意的是, 第4题需要我们记录每一次近似根的偏差, 故上述函数还接收一个模式参数 `mode`, 用它来指示是否需要记录偏差值.   
 &emsp;&emsp;主函数这边, 很贴心地设计了用户友好的 `prompt`, 具体使用方法见下一节. 
 ## 代码使用方法  
+&emsp;&emsp;执行 `test.py` 文件, 它会引入 `bisection()` 和 `newton()` 文件.  
 &emsp;&emsp;使用方法 `prompt` 都给出了, 只要按照 `prompt` 所写的进行输入即可, 下面是三个使用样例.  
 <div style = "text-align:center">
 <img src = "1.png" title = "q3_draw" height = '170px'>
