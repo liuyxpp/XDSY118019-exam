@@ -1,0 +1,30 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+
+\author{任奕凝 21300180116}
+\title{跨入科学研究之门 期末考试一 使用文档 }
+\date{\today}
+\begin{document}
+	\maketitle
+	
+\section{问题描述及解答思路}
+	\subsection{问题描述}
+	编写python代码以实现Bisection算法和Newton算法，并将该两种算法与Numpy/Scipy中的求根函数进行比较。同时比较这两种算法在求解$x^2-2=0$在区间$(1,2)$中的根的收敛速度
+	\subsection{解答思路}
+	\begin{itemize}
+		\item
+		写出Bisection算法函数和Newton算法函数
+		\item
+		定义函数$f_{1}=2x-tan(x)$，$e^{x+1}-2-x$,$x^{-2}-sin(x)$,并用Scipy中的求根函数求根，再用以上定义的两种算法求根
+		\item 
+		用Bisection算法和Newton算法分别求解$x^2-2=0$在区间$(1,2)$中的根，记录每次迭代得到的近似解，并用matplotlib.pyplot以迭代次数为横轴，以每次得到的近似解为纵轴，绘制图片。
+	\end{itemize}
+	
+\section{如何使用代码}
+	问题一问题二把函数，导数（问题二），求解区间的左右端点和目标误差输入，可以输出解。
+	
+	问题三问题四可以直接运行代码得到结果。
+\end{document}
