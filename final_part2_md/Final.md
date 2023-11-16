@@ -25,7 +25,7 @@ plt.title('Population Growth Trend')
 plt.show()
 ```
 
-![Untitled](Final%207c87882b64044a3e9e78fc7ee50a8966/Untitled.png)
+![Untitled](imgs/1.png)
 
 ## iii
 
@@ -53,7 +53,7 @@ plt.title('Exponential Data Fitting')
 plt.show()
 ```
 
-![Untitled](Final%207c87882b64044a3e9e78fc7ee50a8966/Untitled%201.png)
+![Untitled](imgs/2.png)
 
 ## iiii
 
@@ -74,7 +74,7 @@ plt.title('Exponential vs Linear Fit Comparison')
 plt.show()
 ```
 
-![Untitled](Final%207c87882b64044a3e9e78fc7ee50a8966/Untitled%202.png)
+![Untitled](imgs/3.png)
 
 # 第二题
 
@@ -87,7 +87,7 @@ axis equal;
 colormap summer
 ```
 
-![119612a985423c65b9212dc5fe375f7.png](Final%207c87882b64044a3e9e78fc7ee50a8966/119612a985423c65b9212dc5fe375f7.png)
+![119612a985423c65b9212dc5fe375f7.png](imgs/4.png)
 
 ## ii
 
@@ -100,7 +100,7 @@ axis equal;
 colormap([1 0 0])
 ```
 
-![eed06279ad5d80b0ac47aed6538d865.png](Final%207c87882b64044a3e9e78fc7ee50a8966/eed06279ad5d80b0ac47aed6538d865.png)
+![eed06279ad5d80b0ac47aed6538d865.png](imgs/5.png)
 
 # 第三题
 
@@ -111,7 +111,7 @@ Output:
 -Log(Cos[x])
 ```
 
-![b6792310fc64bafdd93ed36604d898b.png](Final%207c87882b64044a3e9e78fc7ee50a8966/b6792310fc64bafdd93ed36604d898b.png)
+![b6792310fc64bafdd93ed36604d898b.png](imgs/6.png)
 
 # 第四题
 
