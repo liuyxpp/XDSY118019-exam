@@ -92,12 +92,13 @@ colormap summer
 ## ii
 
 ```matlab
-[x,y,z] = meshgrid(-1:0.1:1,-1:0.1:1,-1:0.1:1);  
-a = 2; b = 1;
+[x, y, z] = meshgrid(-2:0.1:2, -1.5:0.1:1.5, -1:0.1:1);
+a = 2;
+b = 1;
 V = (x.^2/a^2 + y.^2/b^2 + z.^2/b^2);
-isosurface(x,y,z,V,1);
+isosurface(x, y, z, V, 1);
 axis equal;
-colormap([1 0 0])
+colormap([1 0 0]);
 ```
 
 ![eed06279ad5d80b0ac47aed6538d865.png](imgs/5.png)
