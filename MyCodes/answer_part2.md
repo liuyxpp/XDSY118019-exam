@@ -26,10 +26,10 @@ Output:
 ![image-20231116190040769](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20231116190040769.png)
 
 ```matlab
-[x,y,z] = meshgrid(-1:0.1:1,-1:0.1:1,-1:0.1:1); a = 2; b = 1; V = (x.^2/a^2 + y.^2/b^2 + z.^2/b^2); isosurface(x,y,z,V,1); axis equal; colormap([1 0 0])
+[x,y,z] = meshgrid(-4:0.1:4,-2:0.1:2,-2:0.1:2); a = 2; b = 1; V = (x.^2/a^2 + y.^2/b^2 + z.^2/b^2); isosurface(x,y,z,V,1); axis equal; colormap([1 0 0])
 ```
 
-![image-20231116190124143](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20231116190124143.png)
+![image-20231116203153904](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20231116203153904.png)
 
 
 
