@@ -86,12 +86,21 @@ plt.show()
 #### Q2
 1. 
 ```
-[x,y,z]=meshgrid(-1:0.1:1); isosurface(x,y,z,x.^2+y.^2+z.^2-1,0); axis equal; colormap summer
+[x,y,z]=meshgrid(-1:0.1:1); 
+isosurface(x,y,z,x.^2+y.^2+z.^2-1,0); 
+axis equal; 
+colormap summer
 ```
 ![Alt text](image-2-5.png)
 2. 
 ```
-[x,y,z] = meshgrid(-1:0.1:1,-1:0.1:1,-1:0.1:1); a = 2; b = 1; V = (x.^2/a^2 + y.^2/b^2 + z.^2/b^2); isosurface(x,y,z,V,1); axis equal; colormap([1 0 0])
+[x, y, z] = meshgrid(-2:0.1:2, -1.5:0.1:1.5, -1:0.1:1);
+a = 2;
+b = 1;
+V = (x.^2/a^2 + y.^2/b^2 + z.^2/b^2);
+isosurface(x, y, z, V, 1);
+axis equal;
+colormap([1 0 0]);
 ```
 ![Alt text](image-2-4.png)
 #### Q3
