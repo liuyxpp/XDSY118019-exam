@@ -4,11 +4,11 @@
 #### Q1
 - Notes：uspop文本文件一定需要与Q1.py文件放在同一个目录下，否则需要自己修改代码。
 - 线性拟合截图：
-![Alt text](image.png)
+![Alt text](image-2-0.png)
 - 指数拟合截图：
-![Alt text](image-1.png)
+![Alt text](image-2-1.png)
 - 转化后拟合截图：
-![Alt text](image-3.png)
+![Alt text](image-2-3.png)
 - 代码如下：
 ```
 import numpy as np
@@ -88,12 +88,12 @@ plt.show()
 ```
 [x,y,z]=meshgrid(-1:0.1:1); isosurface(x,y,z,x.^2+y.^2+z.^2-1,0); axis equal; colormap summer
 ```
-![Alt text](image-5.png)
+![Alt text](image-2-5.png)
 2. 
 ```
 [x,y,z] = meshgrid(-1:0.1:1,-1:0.1:1,-1:0.1:1); a = 2; b = 1; V = (x.^2/a^2 + y.^2/b^2 + z.^2/b^2); isosurface(x,y,z,V,1); axis equal; colormap([1 0 0])
 ```
-![Alt text](image-4.png)
+![Alt text](image-2-4.png)
 #### Q3
 ```
 Input:
@@ -101,7 +101,7 @@ Integrate[(Sin[x] - Sin[3*x] + Sin[5*x])/(Cos[x] + Cos[3*x] + Cos[5*x]),x]
 Output:
 -Log(Cos[x])
 ```
-![Alt text](image-2.png)
+![Alt text](image-2-2.png)
 #### Q4
 - 渲染后效果如下：
 # Lorenz Attractor
