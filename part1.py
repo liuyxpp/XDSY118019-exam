@@ -40,9 +40,28 @@ def ploting_orbit_diagram(start,end,step,b,N):
         plt.plot(A,henon_setx,'*')
         a += step
 #画出orbitdiagram
-henon_x,henon_y = generate_henonmap_xy(1.2,0.3,0,0,10000)
-output_orbit(generate_henonmap(henon_x,henon_y), 10000)
 
+# a = getin_float(input("a:"))
+# b = getin_float(input("b:"))
+# x = getin_float(input("x:"))
+# y = getin_float(input("y:"))
+# N = getin_int(input("N:"))
+# henon_x,henon_y = generate_henonmap_xy(a ,b ,x ,y ,N )
+# plt.plot(henon_x,henon_y,"*")
+
+# henon_x,henon_y = generate_henonmap_xy(1.2,0.3,0,0,10000)
+# output_orbit(generate_henonmap(henon_x,henon_y), 10000)
+
+# N = getin_int(input("N:"))
+# henon_x,henon_y = generate_henonmap_xy(1.4 ,0.3 ,0 ,0 ,N )
+# plt.plot(henon_x,henon_y,"*")
+# output_orbit(generate_henonmap(henon_x,henon_y), N)
+
+# henon_x,henon_y = generate_henonmap_xy(1.2,0.3,0,0,10000)
+# output_orbit(generate_henonmap(henon_x,henon_y), 10000)
+# plt.plot(henon_x,henon_y,"*")
+
+#测试分别取消对应注释，同时记得把其他注释掉即可
 
 
 
