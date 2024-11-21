@@ -1,0 +1,112 @@
+(* Content-type: application/vnd.wolfram.cdf.text *)
+
+(*** Wolfram CDF File ***)
+(* http://www.wolfram.com/cdf *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*************************************************************************)
+(*                                                                       *)
+(*                                                                       *)
+(*  This file was created under the Wolfram Enterprise licensing terms.  *)
+(*                                                                       *)
+(*       For additional information concerning CDF licensing see:        *)
+(*                                                                       *)
+(*        www.wolfram.com/cdf/adopting-cdf/licensing-options.html        *)
+(*                                                                       *)
+(*                                                                       *)
+(*                                                                       *)
+(*************************************************************************)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[      1060,         20]
+NotebookDataLength[      2682,         89]
+NotebookOptionsPosition[      2869,         80]
+NotebookOutlinePosition[      3287,         97]
+CellTagsIndexPosition[      3244,         94]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"n", "^", "3"}], "+", 
+      RowBox[{"n", "^", "2"}]}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "Infinity"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.94118134335458*^9, 3.9411813433555813`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"21f60dc2-4be9-2241-b912-5267ce5073c3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], "+", 
+  FractionBox[
+   SuperscriptBox["\[Pi]", "2"], "6"]}]], "Output",
+ CellChangeTimes->{3.9411813446312027`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"42763c40-18e8-614f-86f0-538f0e0e52e6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "x", "]"}], "*", 
+      RowBox[{"Log", "[", "x", "]"}]}], ")"}], "/", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"x", "+", "1"}], ")"}], "^", "2"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "Infinity"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.941181347257248*^9, 3.941181347257248*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"993c9a85-5c4d-2f46-9555-15a79aed27e8"],
+
+Cell[BoxData["\[Pi]"], "Output",
+ CellChangeTimes->{3.941181352915167*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"6caff55f-56bb-2b42-bbd8-432540bd5189"]
+}, Open  ]]
+},
+WindowSize->{571, 612.5},
+WindowMargins->{{Automatic, 37.5}, {58.5, Automatic}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (2024\:5e747\:670816\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"de171c8a-6617-9d42-baa3-319db375342b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[1482, 35, 419, 11, 42, "Input",ExpressionUUID->"21f60dc2-4be9-2241-b912-5267ce5073c3"],
+Cell[1904, 48, 240, 6, 48, "Output",ExpressionUUID->"42763c40-18e8-614f-86f0-538f0e0e52e6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2181, 59, 517, 14, 42, "Input",ExpressionUUID->"993c9a85-5c4d-2f46-9555-15a79aed27e8"],
+Cell[2701, 75, 152, 2, 76, "Output",ExpressionUUID->"6caff55f-56bb-2b42-bbd8-432540bd5189"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
