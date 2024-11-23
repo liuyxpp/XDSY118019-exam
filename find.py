@@ -25,7 +25,7 @@ def find_name_value(folder_name):
                 * name (str): variable name.
                 * value (float): value of the variable.
         '''
-        pattern = '([-+]?\d*\.\d+|[-+]?\d+)'
+        pattern = '([-+]?\d*\.\d+|[-+]?\d+)(n?)$'
         rst = re.split(pattern, folder_name)
         if len(rst) < 2:
             return folder_name, None
@@ -40,3 +40,10 @@ def find_name_value(folder_name):
             value = valuestr
 
         return name, float(value)
+if __name__ == '__main__':
+    legal_input = ["Phi0.1", "xN14.2", "Kappa0.3n", "Kappa0.4n", "Kappa0.5n"]
+    illegal_input = ["Phi0.1nn"]
+    Boundary_input = ["", "+", ".5", ""]
+    input_list = legal_input + illegal_input + Boundary_input
+    for name in input_list:
+        print(name, find_name_value(folder_name=name))
