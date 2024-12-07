@@ -1,0 +1,16 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"Sum","[","1","/","(","n","^","3"," ","+"," ","n","^","2",")",","," ","{","n",","," ","1",","," ","Infinity","}","]"}]],
+"Input",CellLabel -> "In[1]:= ",ExpressionUUID -> "2fa12bc0-c636-413b-9bf3-a3a18337f026"],Cell[
+BoxData[
+RowBox[{RowBox[{"-","1"}],"+",FractionBox[SuperscriptBox["\[Pi]","2"],"6"]}],StandardForm],
+"Output",CellLabel -> "Out[1]= ",ExpressionUUID -> "2dedd0bf-3005-4286-9cf8-a5ade14633db"]},
+Open],ExpressionUUID -> "f5fb67f0-be44-4a9f-af74-00a56e215605"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"Integrate","[","Sqrt","[","x","]","*","Log","[","x","]","/","(","x"," ","+"," ","1",")","^","2",","," ","{","x",","," ","0",","," ","Infinity","}","]"}]],
+"Input",CellLabel -> "In[2]:= ",ExpressionUUID -> "6dd84e5d-1beb-4acb-922a-719fbe5b5070"],Cell[
+BoxData[
+"\[Pi]",StandardForm],"Output",CellLabel -> "Out[2]= ",ExpressionUUID -> "dea76618-ba25-4f52-a482-7c23d58ef369"]},
+Open],ExpressionUUID -> "47df68c5-11fb-4586-90ba-20b0d90e554a"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "14.1 for Wolfram Cloud 1.70 (October 17, 2024)"]

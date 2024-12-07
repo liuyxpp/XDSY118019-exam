@@ -1,0 +1,47 @@
+\documentclass[UTF8]{ctexart}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath,amssymb,amsfonts}
+
+%设定行距、配置数据包
+\begin{document}
+\section*{题目4}
+	\raggedright
+	\textbf{Q:} Find the solution of the following equation with respect to $\theta$:
+	
+	\[
+	A \cos \theta + B \sin \theta + C = 0
+	\]
+	
+	\textbf{A:} \\
+	Let $x_1 = \cos \theta$ and $x_2 = \sin \theta$, then the solution is given by the intersection of the circle and the line:
+	
+
+	\begin{align*}
+		x_1^2 + x_2^2 &= 1 \\
+		Ax_1 + Bx_2 + C &= 0
+	\end{align*}
+	
+	We reformulate the equations in a parametric form:
+	
+	\[
+	|x|^2 = 1
+	\]
+	\[
+	x(t) = \mathbf{a} + t \mathbf{b}
+	\]
+	
+	where $x = (x_1, x_2)$, $\mathbf{a} = (0, -\frac{C}{B})$, $\mathbf{b} = (-\frac{C}{A}, \frac{C}{B})$, and $t$ is a parameter. The intersection points satisfy the following equation:
+	
+	\[
+	|\mathbf{a} + t \mathbf{b}|^2 = 1
+	\]
+	
+	which can be solved for $t$ to find the intersection points:
+	
+	\[
+	t_{1,2} = \frac{-\mathbf{a} \cdot \mathbf{b} \pm \sqrt{(\mathbf{a} \cdot \mathbf{b})^2 - |\mathbf{b}|^2 (|\mathbf{a}|^2 - 1)}}{|\mathbf{b}|^2}
+	\]
+	
+\end{document}
