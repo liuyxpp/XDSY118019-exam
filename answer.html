@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>question1</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="question1">question1</h1>
+<h2 id="代码">代码</h2>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> scipy.stats <span class="hljs-keyword">import</span> linregress
+<span class="hljs-keyword">from</span> scipy.optimize <span class="hljs-keyword">import</span> curve_fit
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+plt.rcParams[<span class="hljs-string">&quot;font.sans-serif&quot;</span>] = <span class="hljs-string">&quot;SimHei&quot;</span>
+plt.rcParams[<span class="hljs-string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="hljs-literal">False</span>
+
+data = np.loadtxt(<span class="hljs-string">&#x27;uspop.txt&#x27;</span>)
+x = data[:, <span class="hljs-number">0</span>]
+y = data[:, <span class="hljs-number">1</span>]
+result = linregress(x, y)
+k, b, r, p, std_err = result
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">func1</span>(<span class="hljs-params">x, a, c</span>):
+    <span class="hljs-keyword">return</span> a * np.exp(c * x)
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">func2</span>(<span class="hljs-params">x, a, c</span>):
+    <span class="hljs-keyword">return</span> c * x + a
+
+
+params1, _ = curve_fit(func1, x, y, p0=[np.exp(-<span class="hljs-number">21.5789</span>), <span class="hljs-number">0.020758</span>])
+a1, c1 = params1
+params2, _ = curve_fit(func2, x, np.log(y))
+a2, c2 = params2
+
+x_ = np.arange(<span class="hljs-number">1780</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">1</span>)
+y_1 = k * x_ + b
+y_2 = func1(x_, a1, c1)
+y_3 = np.exp(func2(x_, a2, c2))
+
+plt.figure(figsize=(<span class="hljs-number">16</span>, <span class="hljs-number">3.5</span>))
+plt.subplot(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>)
+plt.plot(x, y, label=<span class="hljs-string">&quot;原始数据&quot;</span>)
+plt.plot(x_, y_1, label=<span class="hljs-string">&quot;直线拟合&quot;</span>)
+plt.plot(x_, y_2, label=<span class="hljs-string">&quot;y-exp(x)拟合&quot;</span>)
+plt.plot(x_, y_3, label=<span class="hljs-string">&quot;lny-x拟合&quot;</span>)
+plt.legend()
+
+plt.subplot(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>)
+plt.plot(x, y, label=<span class="hljs-string">&quot;原始数据&quot;</span>)
+plt.plot(x_, y_1, label=<span class="hljs-string">&quot;直线拟合&quot;</span>)
+plt.legend()
+
+plt.subplot(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>)
+plt.plot(x, y, label=<span class="hljs-string">&quot;原始数据&quot;</span>)
+plt.plot(x_, y_2, label=<span class="hljs-string">&quot;y-exp(x)拟合&quot;</span>)
+plt.legend()
+
+plt.subplot(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>)
+plt.plot(x, y, label=<span class="hljs-string">&quot;原始数据&quot;</span>)
+plt.plot(x_, y_3, label=<span class="hljs-string">&quot;lny-x拟合&quot;</span>)
+plt.legend()
+plt.show()
+</code></pre>
+<h2 id="运行结果">运行结果</h2>
+<p><img src="file:///e:\pythonProject\final_exam\question1.png" alt=""></p>
+<h1 id="question2">question2</h1>
+<h2 id="代码-1">代码</h2>
+<h3 id="第一小问">第一小问</h3>
+<pre><code class="language-matlab">[x, y, z] = <span class="hljs-built_in">meshgrid</span>(<span class="hljs-number">-1</span>:<span class="hljs-number">.1</span>:<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>:<span class="hljs-number">.1</span>:<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>:<span class="hljs-number">.1</span>:<span class="hljs-number">1</span>);
+v = x.^<span class="hljs-number">2</span> + y.^<span class="hljs-number">2</span> + z.^<span class="hljs-number">2</span>;
+p = isosurface(x, y, z,v,<span class="hljs-number">1</span>);
+patch(p, <span class="hljs-string">&#x27;FaceColor&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;EdgeColor&#x27;</span>, <span class="hljs-string">&#x27;none&#x27;</span>);
+camlight; lighting gouraud;
+view(<span class="hljs-number">3</span>); axis equal;
+</code></pre>
+<h3 id="第二小问">第二小问</h3>
+<pre><code class="language-matlab">[x, y, z] = <span class="hljs-built_in">meshgrid</span>(<span class="hljs-number">-2</span>:<span class="hljs-number">.1</span>:<span class="hljs-number">2</span>, <span class="hljs-number">-1</span>:<span class="hljs-number">.1</span>:<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>:<span class="hljs-number">.1</span>:<span class="hljs-number">1</span>);
+v = x.^<span class="hljs-number">2.</span>/<span class="hljs-number">4</span> + y.^<span class="hljs-number">2</span> + z.^<span class="hljs-number">2</span>;
+p = isosurface(x, y, z,v,<span class="hljs-number">1</span>);
+patch(p, <span class="hljs-string">&#x27;FaceColor&#x27;</span>, <span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;EdgeColor&#x27;</span>, <span class="hljs-string">&#x27;none&#x27;</span>);
+camlight; lighting gouraud;
+view(<span class="hljs-number">3</span>); axis equal;
+</code></pre>
+<h2 id="运行结果-1">运行结果</h2>
+<h3 id="第一小问-1">第一小问</h3>
+<p><img src="file:///e:\pythonProject\final_exam\question21.png" alt=""></p>
+<h3 id="第二小问-1">第二小问</h3>
+<p><img src="file:///e:\pythonProject\final_exam\question22.png" alt=""></p>
+<h1 id="question3">question3</h1>
+<h2 id="代码-2">代码</h2>
+<p>Integrate[(Sin[x] - Sin[3<em>x] + Sin[5</em>x]) / (Cos[x] + Cos[3<em>x] + Cos[5</em>x]), x]</p>
+<h2 id="运行结果-2">运行结果</h2>
+<p>-Log[Cos[x]]</p>
+<h1 id="question4">question4</h1>
+<p>The Lorenz attractor is an <span style="color:blue">attractor</span> that arises in a simplified system of equations describing thetwo-dimensional flow of fluid. ln the early 1960s, Lorenz accidentally discovered the chaoticbehavior of this system when he found that, for a simplified system, periodic solutions of the form</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>ψ</mi><mo>=</mo><msub><mi>ψ</mi><mn>0</mn></msub><mi>sin</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>a</mi><mi>x</mi></mrow><mi>H</mi></mfrac><mo fence="true">)</mo></mrow><mi>sin</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>z</mi></mrow><mi>H</mi></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\psi =\psi _0\sin \left( \frac{\pi ax}{H} \right) \sin \left( \frac{\pi z}{H} \right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.836em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">πa</span><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>θ</mi><mo>=</mo><msub><mi>θ</mi><mn>0</mn></msub><mi>cos</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>a</mi><mi>x</mi></mrow><mi>H</mi></mfrac><mo fence="true">)</mo></mrow><mi>sin</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>z</mi></mrow><mi>H</mi></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\theta =\theta _0\cos \left( \frac{\pi ax}{H} \right) \sin \left( \frac{\pi z}{H} \right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.836em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">πa</span><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></p>
+<p>grew for Rayleigh numbers larger than the critical value, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>a</mi><mo>&gt;</mo><mi>R</mi><msub><mi>a</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">Ra&gt;Ra_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+. Furthermore, vastly differentresults were obtained for very small changes in the initial values, representing one of the earliestdiscoveries of the so-called <span style="color:blue">butterfly effect</span> .</p>
+<p>Lorenz obtained the simplified equations</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>X</mi><mo>˙</mo></mover><mo>=</mo><mi>σ</mi><mrow><mo fence="true">(</mo><mi>Y</mi><mo>−</mo><mi>X</mi><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\dot{X}=\sigma \left( Y-X \right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9202em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0556em;"><span class="mord">˙</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>Y</mi><mo>˙</mo></mover><mo>=</mo><mi>X</mi><mrow><mo fence="true">(</mo><mi>ρ</mi><mo>−</mo><mi>Z</mi><mo fence="true">)</mo></mrow><mo>−</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">\dot{Y}=X\left( \rho -Z \right) -Y
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9202em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1389em;"><span class="mord">˙</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathnormal">ρ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>Z</mi><mo>˙</mo></mover><mo>=</mo><mi>X</mi><mi>Y</mi><mo>−</mo><mi>β</mi><mi>Z</mi></mrow><annotation encoding="application/x-tex">\dot{Z}=XY-\beta Z
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9202em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0556em;"><span class="mord">˙</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">βZ</span></span></span></span></span></p>
+<p>now known as the Lorenz equations.</p>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
