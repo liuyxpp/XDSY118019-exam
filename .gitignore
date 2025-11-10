@@ -9,3 +9,7 @@ archive
 .DS_Store
 README.html
 finalexam*ans*
+*.html
+find.py
+format_number.py
+uspop.txt
