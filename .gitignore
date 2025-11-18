@@ -1,7 +1,7 @@
 .ipynb_checkpoints
 demo20221013.nb
 finalexam*.md
-*.ipynb
+# *.ipynb 
 uspop.ipynb
 pi.png
 __pycache__
