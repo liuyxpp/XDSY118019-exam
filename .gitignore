@@ -5,7 +5,7 @@ finalexam*.md
 uspop.ipynb
 pi.png
 __pycache__
-archive
+# archive
 .DS_Store
 README.html
 finalexam*ans*
