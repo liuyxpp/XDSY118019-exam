@@ -1,0 +1,18 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"NSum","[",RowBox[{RowBox[{RowBox[
+{"Cos","[",RowBox[{"Pi","/","n"}],"]"}],"/",RowBox[{"n","^","3"}]}],",",RowBox[{"{",RowBox[
+{"n",",","1",",","Infinity"}],"}"}]}],"]"}]],"Input",CellLabel -> "In[3]:= ",ExpressionUUID -> "007329ba-0be4-4d74-91c1-0360735455b2"],Cell[
+BoxData[
+RowBox[{"-","0.9488554939122618`"}],StandardForm],"Output",CellLabel -> "Out[3]= ",
+ExpressionUUID -> "e798e397-63f3-446f-92d2-e86232db37c2"]},Open],ExpressionUUID -> "05de2e23-b155-4c08-a21b-5446f0ab1e8f"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"NIntegrate","[",RowBox[{RowBox[{RowBox[{"Sin","[","x","]"}],"/",RowBox[
+{"(",RowBox[{"x","*",RowBox[{"(",RowBox[{RowBox[{"E","^","x"}],"+","1"}],")"}]}],")"}]}],",",RowBox[
+{"{",RowBox[{"x",",","0",",","Infinity"}],"}"}]}],"]"}]],"Input",CellLabel -> "In[4]:= ",
+ExpressionUUID -> "ac5a3e32-2c0e-43ce-a5fe-17049e71c597"],Cell[
+BoxData["0.506670860171665`",
+StandardForm],"Output",CellLabel -> "Out[4]= ",ExpressionUUID -> "6fc2a64a-3e14-4277-ac10-9c2ef5a1a7b2"]},
+Open],ExpressionUUID -> "792393c0-9d4e-461a-a550-54624cfe07ae"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "14.3 for Wolfram Cloud 1.75 (November 15, 2025)"]
