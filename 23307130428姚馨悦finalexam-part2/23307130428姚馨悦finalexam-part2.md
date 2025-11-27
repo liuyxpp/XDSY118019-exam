@@ -108,13 +108,15 @@ axis equal
 ## 3、利用Mathematica
 
 1、求如下无穷级数的和：
+```mathematica
 Sum[Cos[Pi/n]/n^3,{n,1,Infinity}]
+```
 
 2、求如下定积分的值
 
-Integrate[Sin[x] / (x (Exp[x]+1)^2),{x, 0,Infinity}]
-
-![image-20251127201534438](C:\Users\14785\AppData\Roaming\Typora\typora-user-images\image-20251127201534438.png)
+```mathematica
+Integrate[Sin[x] / (x (Exp[x]+1)^2),{x, 0,nfinity}]
+```
 
 
 
