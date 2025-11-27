@@ -118,7 +118,7 @@ Sum[Cos[Pi/n]/n^3,{n,1,Infinity}]
 Integrate[Sin[x] / (x (Exp[x]+1)^2),{x, 0,nfinity}]
 ```
 
-
+![image-20251127203019339](C:\Users\14785\AppData\Roaming\Typora\typora-user-images\image-20251127203019339.png)
 
 ## 4、渲染
 
