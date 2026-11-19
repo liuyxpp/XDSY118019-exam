@@ -1,75 +1,51 @@
-import math
-import numpy as np
-from scipy.linalg import norm
+"""
+Minkowski distance with optional coordinate weights.
 
-def _validate_vector(u, dtype=None):
-    u = np.asarray(u, dtype=dtype, order='c')
-    if u.ndim == 1:
-        return u
-    raise ValueError("Input vector should be 1-D.")
+Examples
+--------
+>>> minkowski([1, 2], [4, 6], p=2)
+5.0
+>>> minkowski([1, 2], [4, 6], p=1)
+7.0
+>>> minkowski([1, 2], [4, 6], p=3)
+4.497941445275415
+>>> minkowski([0, 0], [3, 4], p=2)
+5.0
+>>> minkowski([1, 1, 1], [2, 2, 2], p=2)
+1.7320508075688772
+"""
 
+def _validate_vector(x, name):
+    if not isinstance(x, (list, tuple)) or len(x) == 0:
+        raise ValueError(f"{name} must be a non-empty list or tuple")
+    if any(not isinstance(a, (int, float)) for a in x):
+        raise TypeError(f"{name} must contain only numbers")
 
-def _validate_weights(w, dtype=np.float64):
-    w = _validate_vector(w, dtype=dtype)
-    if np.any(w < 0):
-        raise ValueError("Input weights should be all non-negative")
-    return w
-
+def _validate_weights(w, n):
+    if w is None:
+        return
+    if not isinstance(w, (list, tuple)) or len(w) != n:
+        raise ValueError("w must have the same length as the vectors")
+    if any(not isinstance(a, (int, float)) or a < 0 for a in w):
+        raise ValueError("weights must be non-negative numbers")
 
 def minkowski(u, v, p=2, w=None):
-    """
-    Compute the Minkowski distance between two 1-D arrays.
+    """Weighted Minkowski distance: (sum(w[i]*abs(u[i]-v[i])**p))**(1/p)."""
+    _validate_vector(u, "u")
+    _validate_vector(v, "v")
+    if len(u) != len(v):
+        raise ValueError("u and v must have the same length")
+    if not isinstance(p, (int, float)) or p <= 0:
+        raise ValueError("p must be a positive number")
+    _validate_weights(w, len(u))
+    weights = [1.0] * len(u) if w is None else w
+    return sum(weights[i] * abs(u[i]-v[i])**p for i in range(len(u)))**(1/p)
 
-    The Minkowski distance between 1-D arrays `u` and `v`,
-    is defined as
-
-    .. math::
-
-       {\\|u-v\\|}_p = (\\sum{|u_i - v_i|^p})^{1/p}.
-
-
-       \\left(\\sum{w_i(|(u_i - v_i)|^p)}\\right)^{1/p}.
-
-    Parameters
-    ----------
-    u : (N,) array_like
-        Input array.
-    v : (N,) array_like
-        Input array.
-    p : scalar
-        The order of the norm of the difference :math:`{\\|u-v\\|}_p`. Note
-        that for :math:`0 < p < 1`, the triangle inequality only holds with
-        an additional multiplicative factor, i.e. it is only a quasi-metric.
-    w : (N,) array_like, optional
-        The weights for each value in `u` and `v`. Default is None,
-        which gives each value a weight of 1.0
-
-    Returns
-    -------
-    minkowski : double
-        The Minkowski distance between vectors `u` and `v`.
-
-    Examples
-    --------
-    >>> distance.minkowski([1, 0, 0], [0, 1, 0], 1)
-    2.0
-    >>> 第1小题: 请在此处再补充5个使用案例。
-    """
-    u_v = u - v
-    if w is not None:
-        if p == 1:
-            root_w = w
-        elif p == 2:
-            # better precision and speed
-            root_w = np.sqrt(w)
-        elif p == np.inf:
-            root_w = (w != 0)
-        else:
-            root_w = np.power(w, 1/p)
-        u_v = root_w * u_v
-    dist = norm(u_v, ord=p)
-    return dist
-
-
-if __name__ == '__main__':
-    pass
+if __name__ == "__main__":
+    tests = [
+        ([1,2,3], [3,2,1], 2, [0.1,0.7,0.2]),
+        ([0,1,1,0,0,1], [1,0,0,1,1,0], 0.5, None),
+        ([0.1,0.5,-0.3,-1.2], [-0.5,1.5,0.3,0.6], 3, None)
+    ]
+    for u,v,p,w in tests:
+        print(minkowski(u,v,p,w))
