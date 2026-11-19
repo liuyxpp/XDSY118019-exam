@@ -1,0 +1,38 @@
+% Q4 --- Navier--Stokes Equations (LaTeX version of q4_navier_stokes.md)
+% Standalone document; compile with: tectonic q4_navier_stokes.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+\begin{document}
+
+\section*{Navier--Stokes Equations}
+
+The Navier--Stokes momentum equation can be derived as a particular form of the Cauchy momentum equation, whose general convective form is:
+\[
+  \displaystyle \frac{D\mathbf{u}}{Dt} = \frac{1}{\rho}\,\nabla \cdot \boldsymbol{\sigma} + \mathbf{a}.
+\]
+By setting the Cauchy stress tensor $\boldsymbol{\sigma}$ to be the sum of a viscosity term $\boldsymbol{\tau}$ (the deviatoric stress) and a pressure term $-p\mathbf{I}$ (volumetric stress), we arrive at:
+\[
+  \displaystyle \rho\,\frac{D\mathbf{u}}{Dt} = -\nabla p + \nabla \cdot \boldsymbol{\tau} + \rho\,\mathbf{a}
+\]
+where
+\begin{itemize}
+  \item $\frac{D}{Dt}$ is the material derivative, defined as $\frac{\partial}{\partial t} + \mathbf{u} \cdot \nabla$,
+  \item $\rho$ is the (mass) density,
+  \item $\mathbf{u}$ is the flow velocity,
+  \item $\nabla \cdot$ is the divergence,
+  \item $p$ is the pressure,
+  \item $t$ is time,
+  \item $\boldsymbol{\tau}$ is the Deviatoric stress|deviatoric stress tensor, which has order 2,
+  \item $\mathbf{a}$ represents body forces acting on the continuum, for example gravity, Fictitious force|inertial accelerations, Coulomb\textquotesingle s law|electrostatic accelerations, and so on.
+\end{itemize}
+In this form, it is apparent that in the assumption of an inviscid fluid -- no deviatoric stress -- Cauchy equations reduce to the \href{https://en.wikipedia.org/wiki/Euler_equations_(fluid_dynamics)}{Euler equations}.
+
+\end{document}

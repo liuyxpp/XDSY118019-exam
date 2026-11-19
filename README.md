@@ -1,23 +1,25 @@
-# 期末考试
-- 课程： 跨入科学研究之门（XDSY118019）
-- 主讲教师： 刘一新（复旦大学高分子科学系）
-- 答案提交方式： 以Pull Request的形式将所有相关材料提交到GitHub repo： https://github.com/liuyxpp/XDSY118019-exam
+# 期末考试第二部分 提交包
 
-## 注意事项
-1. 答案提交方式是本次期末考试考察的一个部分，如果不能按时以Pull Request的形式提交考试答案，本次考试记0分。
+- 课程：跨入科学研究之门（XDSY118019）
+- 学号：26800190065
+- 姓名：BruceGao
+- 日期：2026-11-19
 
-## 考试第一部分：编程实践项目
+## 内容
 
-- 题目发布时间：第9次课结束后至第10次课开始前
-- 答案提交时间：最后一次课结束前
-- 在作答前请确认试题年份
+- `exam_part2.md`：四道题的完整答案（Markdown 源文件）
+- `exam_part2_26800190065_BruceGao.pdf`：上述文件的渲染结果
+- `minkowski.py`：第1题修改后的 Python 源码
+- `part2_solution/`：第1—3题的计算/绘图源码与图片
 
-请阅读[finalexam-part1.pdf](finalexam-part1.pdf)，并按文件内要求作答。
+## 复现
 
-## 考试第二部分：当堂考察
+```bash
+python -m doctest minkowski.py          # 第1题 docstring 用例
+python part2_solution/q1_distances.py   # 第1题三组距离
+python part2_solution/q2_klein.py       # 第2题 Python 等价渲染
+python part2_solution/q3_verify.py      # 第3题 SymPy 验证
+```
 
-- 时间： 最后一次课
-- 地点： H2112A
-- 考察形式： 开卷，请携带笔记本电脑。
-
-本学期考卷将在考试时间发布。在此之前，请阅读样卷[finalexam-part2.pdf](finalexam-part2.pdf)以熟悉题型。
+第2题 `q2_klein.m` 在 MATLAB 中运行（R2020b+）；第3题 `q3_series_integral.wl` 在
+Wolfram Mathematica 中运行。
